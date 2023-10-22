@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B4A00201-FFF5-578E-A9E0-081217217841" name="ACTA_FINAL">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>8682A85D-858D-1793-1E51-3133217B4497</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_Acta" id="784CB125-6EF8-1233-36C3-D53CF3ECC1A8">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>12A823A6-A2B3-41E6-24BE-3A6C5EB8B260</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ciclo" id="7A6C8BFF-7D38-9EE6-2A4F-6BAC5A2812E0">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>331028ED-EFE6-FE9C-10EC-16EC97FCFB92</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaHora" id="0A214386-182A-E9B6-AE4A-BAA184F6DDE5">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>6D9BA67D-0502-9F18-2C6E-550EC50E12BA</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOTAS_id_Nota" id="9619147B-43F1-E297-6B45-FD98E6F9F558">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>CCB6CC3E-D809-6DA1-A324-9B8304699E15</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5D0B911-B1B1-9A2B-2E9E-F2719D85DBBB" referredColumn="5541FAAF-1581-47B0-46B1-762C9BE8D13E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="08AADFE0-B1EF-E8EA-73B8-CA192C891191" name="ACTA_FINAL_PK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>3FE80280-A066-221F-F13D-307E413051F4</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="784CB125-6EF8-1233-36C3-D53CF3ECC1A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DA618B4C-2BF0-88B8-05A5-E1EBB204F24E" name="ACTA_FINAL_NOTAS_FK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>9F5B11F2-19FD-C5CE-9F30-3D5C67A15870</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9619147B-43F1-E297-6B45-FD98E6F9F558"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

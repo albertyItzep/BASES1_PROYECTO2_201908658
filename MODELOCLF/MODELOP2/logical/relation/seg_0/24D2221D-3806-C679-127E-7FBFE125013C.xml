@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Decente:CursoHabilidato" directorySegmentName="seg_0" id="24D2221D-3806-C679-127E-7FBFE125013C">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 20:49:52 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<sourcePk>34269FBE-CB78-9021-F386-A8099D077ECA</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>C73E8642-A419-FB0E-16B1-38D9F8AC87EF</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>51BF3460-5B78-4C3D-F762-36DFE411D494</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

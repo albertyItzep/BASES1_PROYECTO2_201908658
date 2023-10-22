@@ -1,0 +1,12 @@
+Hola vamos a realizar el proyecto de Bases 1 
+
+las principales entidades que puedo ver es 
+- Estudiante
+- Docentes
+- Cursos
+- Actas finales
+- Carrera
+- Asignaciones
+- Desasignacione
+- Curso activo
+- Historial transacciones

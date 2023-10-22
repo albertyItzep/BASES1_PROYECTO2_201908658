@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BC962BFC-A87F-8886-A365-1B51410CC265" name="HORARIO_CURSO">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>36D6903F-6734-D8B9-10E7-080405CBE5D3</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_Horario" id="4AE4CA31-ADD5-B7E2-F909-6E0F18318109">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>0BB11FE4-697B-5C1E-0C76-13CA68FA7EFE</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CURSO_HABILITADO_id_Habilitado" id="07632965-265D-CD18-F326-04C3180913F1">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>0881494F-1894-E264-E1DA-A763CD555BB0</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3CC819EE-2110-DE38-7443-FF37BA0B78B1" referredColumn="24FF7E5A-DBE6-A12F-73A8-DC888890D46B"/>
+</associations>
+</Column>
+<Column name="dia" id="AE49E54D-4949-D23B-A554-BBEE181AD9ED">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>A5FB8760-3952-1289-53CF-7808E0A66168</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="horario" id="0CF38AA6-C358-F6BE-F1D1-A6AD3B7F3D21">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>64F802EB-FDB6-BFCE-FD73-7153BBCCA5EA</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C45C9AB1-28DD-37F6-5A3E-144AEE78CDDC" name="HORARIO_CURSO_PK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>C910042C-4F7F-665A-6C96-D852667F9784</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4AE4CA31-ADD5-B7E2-F909-6E0F18318109"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7E42C2E6-CED9-FC6E-5857-9EF5B47683AF" name="HORARIO_CURSO_CURSO_HABILITADO_FK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>F7A950A4-4347-12D0-AF92-E7D2A641DDC9</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07632965-265D-CD18-F326-04C3180913F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

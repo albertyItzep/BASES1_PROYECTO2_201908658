@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E8DA4D6C-91D7-52A2-EDD7-4FE6CCFEF40D" name="CURSO_HABILITADO">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>51BF3460-5B78-4C3D-F762-36DFE411D494</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_Habilitado" id="24FF7E5A-DBE6-A12F-73A8-DC888890D46B">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>0C85604A-2B6B-BD3F-9D3D-EE71927385C4</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CURSO_codigoCurso" id="791BE9C8-7F3D-3541-4519-4B41F3400973">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>7A1A45AE-AA09-AE21-81B2-3EF4909EE4E9</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D5B597B5-5F58-665D-4090-C7899F1E46CB" referredColumn="ACDCABD0-9A77-F67F-6402-F2778A21B463"/>
+</associations>
+</Column>
+<Column name="cicloEstudiantil" id="2CFE6827-572B-EDEE-680A-498F699BC668">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>409AA192-F69E-4E51-3AC3-51F652EE32EE</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DOCENTE_siif_Docente" id="75EDE3BF-F010-9659-3534-3FB8BBA2BADF">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>7BF64055-2D5A-38F1-CA0A-7B0533645961</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6B3C6D03-7E27-A3FF-32CD-84E0C28B6E30" referredColumn="76E47646-BA5C-33D5-9B70-BBECE4A13843"/>
+</associations>
+</Column>
+<Column name="cupoMaximo" id="B7583621-EE49-BCA6-0FD5-54E1E9FFB788">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>899D5705-2C42-EF26-8A44-91B702264691</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Seccion" id="34C1A548-9E8D-0ED0-CE83-8AF45371BEB1">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>BF9A6409-4BCA-DD67-E161-B410D9637B69</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaHora" id="3AF67486-9519-CE7E-062A-85318AEE2742">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>C95FFA30-6D65-A05D-83ED-68439B8D51A5</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="50ECE6C7-A772-6C72-6574-5A65172A6DAF" name="CURSO_HABILITADO_PK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>268EAFC0-3BEB-3FEF-5CE7-1C01D28B3C87</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="24FF7E5A-DBE6-A12F-73A8-DC888890D46B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C0627B45-5F72-9D3A-6D4D-24473E73739B" name="CURSO_HABILITADO_CURSO_FK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>3DC8B0B4-92E3-9FB6-893E-EDBDC1459DC1</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="791BE9C8-7F3D-3541-4519-4B41F3400973"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="58CC0C15-8B42-5CD1-6AA1-8878593A0C31" name="CURSO_HABILITADO_DOCENTE_FK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>24D2221D-3806-C679-127E-7FBFE125013C</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="75EDE3BF-F010-9659-3534-3FB8BBA2BADF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5F2CD3BD-218C-6D61-32CA-17282B8AEFCE" containerWithKeyObject="758D1125-9305-C623-7CA6-C4F0A9322DC7" localFKIndex="ED89BCCE-D221-0ECE-EF3A-968D5CE0DC24" name="NOTAS_ASIGNACION_FK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>4C2C4ED3-3671-094A-8D52-ADDBB2021F9B</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<referredTableLongName>ASIGNACION</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>95262F8F-F7DA-BB42-3147-71D9A4CB5C94</referredTableID>
+<keyObject>75AFE62B-C67F-3629-A99C-C5FA33F8716F</keyObject>
+<referredKeyID>75AFE62B-C67F-3629-A99C-C5FA33F8716F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_Asignacion</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

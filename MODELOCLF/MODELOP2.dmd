@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="MODELOP2" id="C6890A92-1BA3-E27B-FC95-20B766F6C321" version="3.5">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 18:01:06 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>C6890A92-1BA3-E27B-FC95-20B766F6C321</designId>
+</OSDM_Design>

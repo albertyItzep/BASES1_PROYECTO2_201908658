@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ESTUDIANTE:DESASIGNACION" directorySegmentName="seg_0" id="B4CBE59A-46F7-449D-A8E9-76BF87785706">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:18:11 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<sourcePk>6B993CCB-27D4-6D71-0300-88625E686703</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>0BEE78C3-FC5A-E2B5-73DF-E620ECA8D4B9</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>CE9DC8DB-5142-2EDC-5572-482A3C7998E2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

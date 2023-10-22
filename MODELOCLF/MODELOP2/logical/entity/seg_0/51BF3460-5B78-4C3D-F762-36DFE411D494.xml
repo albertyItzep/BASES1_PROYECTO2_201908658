@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="51BF3460-5B78-4C3D-F762-36DFE411D494" name="CURSO_HABILITADO">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 18:03:46 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_Habilitado" id="0C85604A-2B6B-BD3F-9D3D-EE71927385C4">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 19:58:52 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigoCurso" id="7A1A45AE-AA09-AE21-81B2-3EF4909EE4E9">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 20:53:18 UTC</createdTime>
+<generatorID>3DC8B0B4-92E3-9FB6-893E-EDBDC1459DC1</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<referedAttribute>86D7E36A-AB20-3337-023B-C3ADB836BA09</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cicloEstudiantil" id="409AA192-F69E-4E51-3AC3-51F652EE32EE">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 19:57:48 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="siif_Docente" id="7BF64055-2D5A-38F1-CA0A-7B0533645961">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 20:49:52 UTC</createdTime>
+<generatorID>24D2221D-3806-C679-127E-7FBFE125013C</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<referedAttribute>9145C34F-D3A8-0FDD-7693-B6DB736926AD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cupoMaximo" id="899D5705-2C42-EF26-8A44-91B702264691">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 19:58:29 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Seccion" id="BF9A6409-4BCA-DD67-E161-B410D9637B69">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 19:59:24 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fechaHora" id="C95FFA30-6D65-A05D-83ED-68439B8D51A5">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:27:51 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="268EAFC0-3BEB-3FEF-5CE7-1C01D28B3C87" name="CURSO_HABILITADO PK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 19:59:19 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0C85604A-2B6B-BD3F-9D3D-EE71927385C4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

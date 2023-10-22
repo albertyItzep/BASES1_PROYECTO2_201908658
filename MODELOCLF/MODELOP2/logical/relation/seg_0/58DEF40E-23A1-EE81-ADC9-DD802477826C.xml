@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Desasignacion:Curso_Habilitado" directorySegmentName="seg_0" id="58DEF40E-23A1-EE81-ADC9-DD802477826C">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:16:55 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<sourcePk>268EAFC0-3BEB-3FEF-5CE7-1C01D28B3C87</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>51BF3460-5B78-4C3D-F762-36DFE411D494</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>CE9DC8DB-5142-2EDC-5572-482A3C7998E2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B5B6D0AC-C19E-774A-BEFE-737AEE3C6B52" name="DESASIGNACION">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>CE9DC8DB-5142-2EDC-5572-482A3C7998E2</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_Desasignacion" id="D1DD1BF4-E74D-BEA5-80AD-7EC3AC007D21">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>CA87250F-89ED-C1A1-538E-59E3EB5B8FA2</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ciclo" id="7B280696-9FBD-51C5-5844-03FA38E002FC">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>DD69BC51-6B75-AD6B-4806-202907EDA68D</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CURSO_HABILITADO_id_Habilitado" id="6410F2C5-0493-5550-5C44-ACDDAB65648B">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>7CFDD7FD-7967-0224-3BCC-209EB9DDE841</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3E6D19BE-7ACC-49EE-64A5-10DE43B73709" referredColumn="24FF7E5A-DBE6-A12F-73A8-DC888890D46B"/>
+</associations>
+</Column>
+<Column name="ESTUDIANTE_carnet_Estudiante" id="1050CEB3-5D71-C928-27E0-4762D0269EB7">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>DAF85428-3949-4ED5-388B-A9530D77C240</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3578BE9F-B13E-6E41-9C01-D3D201059838" referredColumn="5D215943-2094-D924-C6D1-670573905C47"/>
+</associations>
+</Column>
+<Column name="fechaHora" id="9CC8924C-EB99-CBBC-E608-578F47130F9F">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>8BE77C9A-1FF2-25F0-C610-C57501CAE07E</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CECCD677-5BAD-94A3-E7BC-08618C11AD88" name="DESASIGNACION_PK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>DE446371-4128-E762-D58A-36867D502FD4</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D1DD1BF4-E74D-BEA5-80AD-7EC3AC007D21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C9CFA7CE-1CE5-7602-1CCC-FCA321159DAC" name="DESASIGNACION_CURSO_HABILITADO_FK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>58DEF40E-23A1-EE81-ADC9-DD802477826C</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6410F2C5-0493-5550-5C44-ACDDAB65648B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1E705254-240C-225C-40CF-E434B2B70788" name="DESASIGNACION_ESTUDIANTE_FK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:38:16 UTC</createdTime>
+<generatorID>B4CBE59A-46F7-449D-A8E9-76BF87785706</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1050CEB3-5D71-C928-27E0-4762D0269EB7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

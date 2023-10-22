@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CE9DC8DB-5142-2EDC-5572-482A3C7998E2" name="DESASIGNACION">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 18:04:06 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_Desasignacion" id="CA87250F-89ED-C1A1-538E-59E3EB5B8FA2">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 20:17:45 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ciclo" id="DD69BC51-6B75-AD6B-4806-202907EDA68D">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 20:18:04 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_Habilitado" id="7CFDD7FD-7967-0224-3BCC-209EB9DDE841">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:16:55 UTC</createdTime>
+<generatorID>58DEF40E-23A1-EE81-ADC9-DD802477826C</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<referedAttribute>0C85604A-2B6B-BD3F-9D3D-EE71927385C4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="carnet_Estudiante" id="DAF85428-3949-4ED5-388B-A9530D77C240">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:18:11 UTC</createdTime>
+<generatorID>B4CBE59A-46F7-449D-A8E9-76BF87785706</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<referedAttribute>78941A2B-5A68-9F2D-259B-7EF5AA3027CB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fechaHora" id="8BE77C9A-1FF2-25F0-C610-C57501CAE07E">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:29:44 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DE446371-4128-E762-D58A-36867D502FD4" name="DESASIGNACION PK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 20:18:02 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CA87250F-89ED-C1A1-538E-59E3EB5B8FA2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Curso:Carrera" directorySegmentName="seg_0" id="DD7EFBAC-1BCD-0ED8-5BEC-E15659759795">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:34:47 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<sourcePk>008E6E9A-B139-B472-74DD-436A74893EB3</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E9162250-1150-FDE6-C5B0-3020CEE9AF4D</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>DB821052-C350-9D55-63CD-5C3EC5ED371D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

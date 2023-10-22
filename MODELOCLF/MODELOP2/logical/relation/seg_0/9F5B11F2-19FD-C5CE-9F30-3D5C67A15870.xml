@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ACTA:NOTAS" directorySegmentName="seg_0" id="9F5B11F2-19FD-C5CE-9F30-3D5C67A15870">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-19 22:32:38 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<sourcePk>BEC7F95B-E741-453E-C824-E868240CF95B</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>F70FB731-FE8A-2320-B0A5-2FE275277829</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>8682A85D-858D-1793-1E51-3133217B4497</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
