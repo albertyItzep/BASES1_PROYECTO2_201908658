@@ -215,3 +215,98 @@ END;
 $$
 
 DELIMITER ;
+
+--funcion para verificar si un curso existe
+DELIMITER $$
+CREATE FUNCTION verificarExisteCurso(codigoCursoI integer)
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+	DECLARE contador INTEGER;
+    SELECT COUNT(*) INTO contador FROM CURSO WHERE codigoCurso = codigoCursoI;
+    IF contador > 0 THEN
+		RETURN TRUE;
+	ELSE
+		RETURN FALSE;
+	END IF;
+END $$
+DELIMITER ;
+
+--funcion para validar que el ciclo que este ingresando sea correcto
+DELIMITER $$
+CREATE FUNCTION validarCiclo(ciclo VARCHAR(2))
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+	IF ciclo IN ("1S", "2S", "VJ", "VD") THEN
+		RETURN TRUE;
+	ELSE
+		RETURN FALSE;
+	END IF;
+END $$
+DELIMITER ;
+
+-- funcion para validar que existe un docente
+DELIMITER $$
+CREATE FUNCTION validarExisteDocente(docente integer)
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+	DECLARE contador INTEGER;
+    SELECT COUNT(*) INTO contador FROM DOCENTE WHERE siifDocente = docente;
+    IF contador > 0 THEN
+		RETURN TRUE;
+	ELSE 
+		RETURN FALSE;
+	END IF;
+END $$
+DELIMITER ;
+
+-- funcion para verificar que para un curso no exista la seccion
+DELIMITER $$
+CREATE FUNCTION validarExisteSeccion(curso integer, seccionI varchar(1))
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+	DECLARE contador INTEGER;
+    SELECT COUNT(*) INTO contador FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI;
+    IF contador > 0 THEN
+		RETURN TRUE;
+	ELSE 
+		RETURN FALSE;
+	END IF;
+END $$
+DELIMITER ;
+
+-- procedure para realizar la habilitacion de un curso dentro de la base de datos
+DELIMITER $$
+CREATE PROCEDURE habilitarCurso(curso integer, ciclo varchar(2), docente integer, cupoMax integer, seccion varchar(1))
+BEGIN
+	DECLARE exCurso, valCiclo,exDocente,exSeccion BOOLEAN;
+    SET exCurso = verificarExisteCurso(curso);
+    SET valCiclo = validarCiclo(ciclo);
+    SET exDocente = validarExisteDocente(docente);
+    SET exSeccion = validarExisteSeccion(seccion);
+    IF exCurso THEN
+		IF valCiclo THEN
+			IF exDocente THEN
+				IF cupoMax > 0 THEN
+					IF NOT(exSeccion) THEN
+						INSERT INTO CURSO_HABILITADO(codigoCurso,cicloEstudiantil,siifDocente,cupoMaximo,seccion,fechaHora) VALUES (curso,ciclo,docente,cupoMax,seccion, NOW());
+                        SELECT "CURSO HABILITADO" AS Resultado;
+                    ELSE
+						SELECT "SECCION EXISTENTE" AS Resultado;
+					END IF;
+                ELSE
+					SELECT "CUPO MAXIMO INCORRECTO" AS Resultado;
+				END IF;
+            ELSE
+				SELECT "DOCENTE INEXISTENTE" AS Resultado;
+			END IF;
+        ELSE 
+			SELECT "CICLO INCORRECTO" AS Resultado;
+		END IF;
+    ELSE
+		SELECT "CURSO INEXISTENTE" AS Resultado;
+	END IF;
+END;
+$$
+
+DELIMITER ;
+--CALL habilitarCurso(0781,"1S",201908658,40,"N");
