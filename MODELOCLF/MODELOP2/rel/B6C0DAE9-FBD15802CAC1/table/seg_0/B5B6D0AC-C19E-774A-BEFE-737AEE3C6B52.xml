@@ -84,6 +84,7 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="D1DD1BF4-E74D-BEA5-80AD-7EC3AC007D21"/>
+<colUsage columnID="6410F2C5-0493-5550-5C44-ACDDAB65648B"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="C9CFA7CE-1CE5-7602-1CCC-FCA321159DAC" name="DESASIGNACION_CURSO_HABILITADO_FK">

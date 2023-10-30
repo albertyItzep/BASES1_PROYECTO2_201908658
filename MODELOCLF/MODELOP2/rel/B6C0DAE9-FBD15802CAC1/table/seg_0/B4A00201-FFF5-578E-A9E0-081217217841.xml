@@ -57,6 +57,36 @@
 <colAssociation fkAssociation="B5D0B911-B1B1-9A2B-2E9E-F2719D85DBBB" referredColumn="5541FAAF-1581-47B0-46B1-762C9BE8D13E"/>
 </associations>
 </Column>
+<Column name="NOTAS_ASIGNACION_id_Asignacion" id="D8DBE9B6-AA08-0A9D-81B2-EBBB221F881B">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>48E3D8E0-60C3-6778-950A-E35B8E8A963C</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5D0B911-B1B1-9A2B-2E9E-F2719D85DBBB" referredColumn="F9BA70DC-BCB4-88AC-C22D-2E444E5B0899"/>
+</associations>
+</Column>
+<Column name="NOTAS_id_Habilitado" id="60127093-F42F-4CC5-CA25-44AADF7D200A">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>130AD774-1DF2-B5EE-1F71-74BAF953A3B6</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5D0B911-B1B1-9A2B-2E9E-F2719D85DBBB" referredColumn="595B52C4-1FC0-99DF-940A-93EEBBF2279D"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="08AADFE0-B1EF-E8EA-73B8-CA192C891191" name="ACTA_FINAL_PK">
@@ -69,6 +99,9 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="784CB125-6EF8-1233-36C3-D53CF3ECC1A8"/>
+<colUsage columnID="9619147B-43F1-E297-6B45-FD98E6F9F558"/>
+<colUsage columnID="D8DBE9B6-AA08-0A9D-81B2-EBBB221F881B"/>
+<colUsage columnID="60127093-F42F-4CC5-CA25-44AADF7D200A"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="DA618B4C-2BF0-88B8-05A5-E1EBB204F24E" name="ACTA_FINAL_NOTAS_FK">
@@ -80,6 +113,8 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="9619147B-43F1-E297-6B45-FD98E6F9F558"/>
+<colUsage columnID="D8DBE9B6-AA08-0A9D-81B2-EBBB221F881B"/>
+<colUsage columnID="60127093-F42F-4CC5-CA25-44AADF7D200A"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

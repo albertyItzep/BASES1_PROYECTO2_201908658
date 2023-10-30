@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="36D6903F-6734-D8B9-10E7-080405CBE5D3" name="HORARIO_CURSO">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="38345163-ACD2-FE4B-8DA7-A026972370A7" name="SECCION">
 <createdBy>Xorg123</createdBy>
-<createdTime>2023-10-19 20:13:28 UTC</createdTime>
+<createdTime>2023-10-27 06:04:52 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
 <engineerTo>
 <item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id_Horario" id="0BB11FE4-697B-5C1E-0C76-13CA68FA7EFE">
+<Attribute name="idSeccion" id="02034E57-C7D9-6913-2FE2-AFCAA01F9092">
 <createdBy>Xorg123</createdBy>
-<createdTime>2023-10-19 20:13:49 UTC</createdTime>
+<createdTime>2023-10-27 06:05:05 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
 <engineerTo>
 <item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
@@ -27,21 +27,9 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="dia" id="A5FB8760-3952-1289-53CF-7808E0A66168">
+<Attribute name="seccion" id="B6A3ED1D-C268-EF5F-B222-E1CE7CF8497D">
 <createdBy>Xorg123</createdBy>
-<createdTime>2023-10-19 20:14:11 UTC</createdTime>
-<ownerDesignName>MODELOP2</ownerDesignName>
-<engineerTo>
-<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="horario" id="64F802EB-FDB6-BFCE-FD73-7153BBCCA5EA">
-<createdBy>Xorg123</createdBy>
-<createdTime>2023-10-19 20:14:41 UTC</createdTime>
+<createdTime>2023-10-27 06:05:28 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
 <engineerTo>
 <item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
@@ -49,14 +37,14 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="C910042C-4F7F-665A-6C96-D852667F9784" name="HORARIO_CURSO PK">
+<identifier id="AA9E6378-D2A5-1B61-A5E5-870D33A9CA08" name="SECCION PK">
 <createdBy>Xorg123</createdBy>
-<createdTime>2023-10-19 20:14:09 UTC</createdTime>
+<createdTime>2023-10-27 06:05:24 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
 <shouldEngineer>false</shouldEngineer>
 <engineerTo>
@@ -64,7 +52,7 @@
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>0BB11FE4-697B-5C1E-0C76-13CA68FA7EFE</attributeRef>
+<attributeRef>02034E57-C7D9-6913-2FE2-AFCAA01F9092</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

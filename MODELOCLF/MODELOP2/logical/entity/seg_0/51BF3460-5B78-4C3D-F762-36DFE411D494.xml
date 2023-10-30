@@ -80,19 +80,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Seccion" id="BF9A6409-4BCA-DD67-E161-B410D9637B69">
-<createdBy>Xorg123</createdBy>
-<createdTime>2023-10-19 19:59:24 UTC</createdTime>
-<ownerDesignName>MODELOP2</ownerDesignName>
-<engineerTo>
-<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="fechaHora" id="C95FFA30-6D65-A05D-83ED-68439B8D51A5">
 <createdBy>Xorg123</createdBy>
 <createdTime>2023-10-19 22:27:51 UTC</createdTime>
@@ -111,8 +98,9 @@
 <createdBy>Xorg123</createdBy>
 <createdTime>2023-10-19 19:59:19 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

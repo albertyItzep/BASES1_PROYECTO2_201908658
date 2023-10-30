@@ -19,21 +19,6 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="CURSO_HABILITADO_id_Habilitado" id="07632965-265D-CD18-F326-04C3180913F1">
-<createdBy>Xorg123</createdBy>
-<createdTime>2023-10-19 22:38:16 UTC</createdTime>
-<generatorID>0881494F-1894-E264-E1DA-A763CD555BB0</generatorID>
-<ownerDesignName>MODELOP2</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="3CC819EE-2110-DE38-7443-FF37BA0B78B1" referredColumn="24FF7E5A-DBE6-A12F-73A8-DC888890D46B"/>
-</associations>
-</Column>
 <Column name="dia" id="AE49E54D-4949-D23B-A554-BBEE181AD9ED">
 <createdBy>Xorg123</createdBy>
 <createdTime>2023-10-19 22:38:16 UTC</createdTime>
@@ -69,17 +54,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="4AE4CA31-ADD5-B7E2-F909-6E0F18318109"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="7E42C2E6-CED9-FC6E-5857-9EF5B47683AF" name="HORARIO_CURSO_CURSO_HABILITADO_FK">
-<createdBy>Xorg123</createdBy>
-<createdTime>2023-10-19 22:38:16 UTC</createdTime>
-<generatorID>F7A950A4-4347-12D0-AF92-E7D2A641DDC9</generatorID>
-<ownerDesignName>MODELOP2</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="07632965-265D-CD18-F326-04C3180913F1"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

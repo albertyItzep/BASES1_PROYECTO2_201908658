@@ -1,19 +1,19 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="NOTAS:ASIGNACION" directorySegmentName="seg_0" id="4C2C4ED3-3671-094A-8D52-ADDBB2021F9B">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="HORARIO:CURSO_ASIGNADO" directorySegmentName="seg_0" id="246FD4F4-32D1-FAF0-2FCD-F0EB3270E34D">
 <createdBy>Xorg123</createdBy>
-<createdTime>2023-10-19 22:21:25 UTC</createdTime>
+<createdTime>2023-10-27 05:58:19 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
 <engineerTo>
 <item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
 </engineerTo>
-<sourcePk>7CEFB115-3E9A-6D68-376A-DF5D84799A01</sourcePk>
+<sourcePk>268EAFC0-3BEB-3FEF-5CE7-1C01D28B3C87</sourcePk>
 <identifying>true</identifying>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
-<sourceEntity>F27EA281-3ADD-8E7C-1E1B-8767846F3AA1</sourceEntity>
+<sourceEntity>51BF3460-5B78-4C3D-F762-36DFE411D494</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
-<targetEntity>F70FB731-FE8A-2320-B0A5-2FE275277829</targetEntity>
+<targetEntity>7A070CC6-33AE-1DD5-C750-8FD1438809E0</targetEntity>
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>
 </Relation>

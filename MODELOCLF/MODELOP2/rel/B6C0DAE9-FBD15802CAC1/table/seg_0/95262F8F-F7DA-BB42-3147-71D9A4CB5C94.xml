@@ -84,6 +84,7 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="284C6F99-052D-2CDE-CB79-EE9988C3715A"/>
+<colUsage columnID="23FBCE70-274E-717E-7393-47614F9488EF"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="7F8B752C-03CE-DAFF-CAF2-BC4C8D989786" name="ASIGNACION_ESTUDIANTE_FK">

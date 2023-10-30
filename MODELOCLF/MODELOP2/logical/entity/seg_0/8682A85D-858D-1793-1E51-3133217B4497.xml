@@ -66,18 +66,50 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="id_Asignacion" id="48E3D8E0-60C3-6778-950A-E35B8E8A963C">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 05:57:45 UTC</createdTime>
+<generatorID>9F5B11F2-19FD-C5CE-9F30-3D5C67A15870</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<referedAttribute>60134CF1-75A0-907A-CD6B-40228DAD58FA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_Habilitado" id="130AD774-1DF2-B5EE-1F71-74BAF953A3B6">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 05:57:45 UTC</createdTime>
+<generatorID>9F5B11F2-19FD-C5CE-9F30-3D5C67A15870</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<referedAttribute>3D660D02-504A-D07B-5A91-ED30E44109B2</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="3FE80280-A066-221F-F13D-307E413051F4" name="ACTA_FINAL PK">
 <createdBy>Xorg123</createdBy>
 <createdTime>2023-10-19 20:20:28 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>12A823A6-A2B3-41E6-24BE-3A6C5EB8B260</attributeRef>
+<attributeRef>CCB6CC3E-D809-6DA1-A324-9B8304699E15</attributeRef>
+<attributeRef>48E3D8E0-60C3-6778-950A-E35B8E8A963C</attributeRef>
+<attributeRef>130AD774-1DF2-B5EE-1F71-74BAF953A3B6</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

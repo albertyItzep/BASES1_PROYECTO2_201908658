@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3EA2133D-91A4-BA50-A236-D3A858F52B56" name="SECCION_HABILITADA">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>47E47900-F41F-E183-6012-A79F805FC57F</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idSeccionHabilitada" id="34C0B6EC-3691-7842-7AE2-F128F88923C2">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>D2E34B1B-DB03-A373-E6F1-6BD2E25D0AA2</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SECCION_idSeccion" id="F7B5C0BE-2072-E3A5-D3E3-BD4DE4A35B5D">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>3F21FC4D-C5CB-B481-4DB7-2759D9BD6653</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CCB4891F-FC2C-A99B-FE30-669B2C4D5AB1" referredColumn="D28EE6AE-F3A0-F58C-F595-C501ACD8AFB3"/>
+</associations>
+</Column>
+<Column name="CURSO_HABILITADO_id_Habilitado" id="BBC1DC34-51E2-82B2-460F-520B975F11A8">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>9DCDF9C0-E826-4EF6-DAE7-CAC2EE1EAD99</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2B81DE0-8CDA-0D44-DF3E-BFDCB00BC865" referredColumn="24FF7E5A-DBE6-A12F-73A8-DC888890D46B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A6CF831F-7143-76B7-72A4-01F453F4068B" name="SECCION_HABILITADA_PK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>83ED63F5-856A-3DC9-1018-A166F5BBDEFD</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F7B5C0BE-2072-E3A5-D3E3-BD4DE4A35B5D"/>
+<colUsage columnID="34C0B6EC-3691-7842-7AE2-F128F88923C2"/>
+<colUsage columnID="BBC1DC34-51E2-82B2-460F-520B975F11A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="49365D7B-3B48-4642-A3FA-56E6AE09283B" name="SECCION_HABILITADA_CURSO_HABILITADO_FK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>E0B8B0AA-F43A-6F57-5332-08B438808BDD</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BBC1DC34-51E2-82B2-460F-520B975F11A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BB4CE019-E346-EF40-5722-68B6400ED3BD" name="SECCION_HABILITADA_SECCION_FK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>D5B462E9-30BC-EC6B-F580-D3E0B480B954</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F7B5C0BE-2072-E3A5-D3E3-BD4DE4A35B5D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

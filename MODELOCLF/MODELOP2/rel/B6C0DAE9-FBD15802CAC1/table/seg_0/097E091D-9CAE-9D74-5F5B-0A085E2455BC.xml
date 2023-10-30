@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="097E091D-9CAE-9D74-5F5B-0A085E2455BC" name="SECCION">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>38345163-ACD2-FE4B-8DA7-A026972370A7</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idSeccion" id="D28EE6AE-F3A0-F58C-F595-C501ACD8AFB3">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>02034E57-C7D9-6913-2FE2-AFCAA01F9092</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="seccion" id="10B67E77-C185-F808-57EB-F681B532903F">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>B6A3ED1D-C268-EF5F-B222-E1CE7CF8497D</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CDCD1879-9620-4AF0-DA7A-F368A80C2108" name="SECCION_PK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>AA9E6378-D2A5-1B61-A5E5-870D33A9CA08</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D28EE6AE-F3A0-F58C-F595-C501ACD8AFB3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

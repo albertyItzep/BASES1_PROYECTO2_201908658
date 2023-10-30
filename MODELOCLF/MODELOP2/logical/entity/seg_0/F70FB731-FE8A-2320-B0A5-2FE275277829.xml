@@ -91,18 +91,35 @@
 <logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="id_Habilitado" id="3D660D02-504A-D07B-5A91-ED30E44109B2">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 05:57:45 UTC</createdTime>
+<generatorID>4C2C4ED3-3671-094A-8D52-ADDBB2021F9B</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<referedAttribute>C0275E99-1A29-B029-6045-59481334DCB5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="BEC7F95B-E741-453E-C824-E868240CF95B" name="NOTAS PK">
 <createdBy>Xorg123</createdBy>
 <createdTime>2023-10-19 20:18:47 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>DF4F09A3-F73A-ECB2-F60D-367A9F5BDA78</attributeRef>
+<attributeRef>60134CF1-75A0-907A-CD6B-40228DAD58FA</attributeRef>
+<attributeRef>3D660D02-504A-D07B-5A91-ED30E44109B2</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

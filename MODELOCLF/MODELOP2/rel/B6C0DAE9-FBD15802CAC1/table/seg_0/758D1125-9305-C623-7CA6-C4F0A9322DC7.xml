@@ -80,6 +80,21 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="ASIGNACION_CURSO_HABILITADO_id_Habilitado" id="595B52C4-1FC0-99DF-940A-93EEBBF2279D">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-10-27 06:26:34 UTC</createdTime>
+<generatorID>3D660D02-504A-D07B-5A91-ED30E44109B2</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5F2CD3BD-218C-6D61-32CA-17282B8AEFCE" referredColumn="23FBCE70-274E-717E-7393-47614F9488EF"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="0B1711C9-6020-5746-6950-DC795FA633BC" name="NOTAS_PK">
@@ -92,6 +107,8 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="5541FAAF-1581-47B0-46B1-762C9BE8D13E"/>
+<colUsage columnID="F9BA70DC-BCB4-88AC-C22D-2E444E5B0899"/>
+<colUsage columnID="595B52C4-1FC0-99DF-940A-93EEBBF2279D"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="ED89BCCE-D221-0ECE-EF3A-968D5CE0DC24" name="NOTAS_ASIGNACION_FK">
@@ -103,6 +120,7 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="F9BA70DC-BCB4-88AC-C22D-2E444E5B0899"/>
+<colUsage columnID="595B52C4-1FC0-99DF-940A-93EEBBF2279D"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
