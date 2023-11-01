@@ -72,7 +72,7 @@
 <colAssociation fkAssociation="B5D0B911-B1B1-9A2B-2E9E-F2719D85DBBB" referredColumn="F9BA70DC-BCB4-88AC-C22D-2E444E5B0899"/>
 </associations>
 </Column>
-<Column name="NOTAS_id_Habilitado" id="60127093-F42F-4CC5-CA25-44AADF7D200A">
+<Column name="NOTAS_ASIGNACION_CURSO_HABILITADO_id_Habilitado" id="60127093-F42F-4CC5-CA25-44AADF7D200A">
 <createdBy>Xorg123</createdBy>
 <createdTime>2023-10-27 06:26:34 UTC</createdTime>
 <generatorID>130AD774-1DF2-B5EE-1F71-74BAF953A3B6</generatorID>

@@ -16,8 +16,12 @@ BEGIN
     IF valCurso THEN
       IF valCiclo THEN
         IF valDocente THEN
-          INSERT INTO CURSO_HABILITADO(codigoCurso,cicloEstudiantil,siifDocente,cupoMaximo,seccion,fechaHora) VALUES (curso,ciclo,docente,cupoMaximo,seccionI,NOW());
-          SELECT "CURSO HABILITADO EXITOSAMENTE" AS Resultado;
+          IF cupoMax > 0 THEN
+            INSERT INTO CURSO_HABILITADO(codigoCurso,cicloEstudiantil,siifDocente,cupoMaximo,seccion,yearH,fechaHora) VALUES (curso,ciclo,docente,cupoMax,seccionI,CAST(YEAR(NOW()) AS SIGNED),NOW());
+            SELECT "CURSO HABILITADO EXITOSAMENTE" AS Resultado;
+          ELSE
+            SELECT "CUPO MAXIMO INCORRECTO" AS Resultado;
+          END IF;
         ELSE
           SELECT "DOCENTE INEXISTENTE" AS Resultado;
         END IF;
@@ -78,4 +82,17 @@ BEGIN
 END $$
 DELIMITER ;
 
+DELIMITER $$ 
+CREATE FUNCTION validarHabilitadoSeccion(curso integer, seccionI varchar(1))
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+  DECLARE contador integer;
+  SELECT COUNT(*) INTO contador FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI;
+  IF contador > 0 THEN
+    RETURN TRUE;
+  ELSE 
+    RETURN FALSE;
+  END IF;
+END $$
+DELIMITER ;
 

@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS CURSO_HABILITADO(
     siifDocente INTEGER NOT NULL,
     cupoMaximo INTEGER NOT NULL,
     seccion VARCHAR(1) NOT NULL,
+    yearH INTEGER NOT NULL,
     fechaHora datetime NOT NULL,
     PRIMARY KEY(idHabilitado),
     FOREIGN KEY(codigoCurso) REFERENCES CURSO(codigoCurso),
@@ -79,7 +80,7 @@ CREATE TABLE IF NOT EXISTS CURSO_HABILITADO(
     dia INTEGER NOT NULL,
     horario VARCHAR(10) NOT NULL,
     fechaHora datetime NOT NULL,
-    PRIMARY KEY(idHorarioCurso),
+    PRIMARY KEY(idHorarioCurso)
 );
 
 CREATE TABLE IF NOT EXISTS HORARIO_ASIGNADO(
@@ -105,6 +106,14 @@ CREATE TABLE IF NOT EXISTS ASIGNACION(
     FOREIGN KEY(carnetEstudiante) REFERENCES ESTUDIANTE(carnetEstudiante)
 );
 
+CREATE TABLE IF NOT EXISTS CONTROL_ASIGNACION (
+    idControlAsignados INTEGER AUTO_INCREMENT,
+    idHabilitado INTEGER NOT NULL,
+    cantidadAsignados INTEGER NOT NULL,
+    PRIMARY KEY(idControlAsignados),
+    FOREIGN KEY(idHabilitado) REFERENCES CURSO_HABILITADO(idHabilitado)
+);
+
 CREATE TABLE IF NOT EXISTS DESASIGNACION(
     idDesasignacion INTEGER AUTO_INCREMENT,
     cicloEstudiantil VARCHAR(2) NOT NULL,
@@ -127,6 +136,15 @@ CREATE TABLE IF NOT EXISTS NOTA(
     FOREIGN KEY(idAsignacion) REFERENCES ASIGNACION(idAsignacion)
 );
 
+CREATE TABLE IF NOT EXISTS ACTA(
+  idActa INTEGER AUTO_INCREMENT,
+  codigoCurso INTEGER NOT NULL,
+  ciclo VARCHAR(2) NOT NULL,
+  seccion varchar(1) NOT NULL,
+  fechaHora DATETIME NOT NULL,
+  PRIMARY KEY(idActa)
+);
+
 CREATE TABLE IF NOT EXISTS HISTORIAL(
     idHistorico INTEGER AUTO_INCREMENT,
     fechaHora datetime NOT NULL,
@@ -140,6 +158,8 @@ CREATE TABLE IF NOT EXISTS HISTORIAL(
 
 -- CREAR CARRERA
 use proyecto2;
+
+
 
 
 DELIMITER $$
@@ -164,7 +184,6 @@ END;
 $$
 
 DELIMITER ;
-
 
 USE proyecto2;
 
@@ -205,7 +224,6 @@ BEGIN
 	END IF;
 END $$
 DELIMITER ;
-
 
 USE proyecto2;
 
@@ -263,7 +281,6 @@ BEGIN
 END $$
 DELIMITER ;
 
-
 USE proyecto2;
 
 -- PROCEDIMIENTO PARA CREAR UN ESTUDIANTE
@@ -302,8 +319,6 @@ BEGIN
 END $$
 DELIMITER ;
 
-USE proyecto2;
-
 -- procedure para realizar la habilitacion de un curso dentro de la base de datos
 DELIMITER $$
 CREATE PROCEDURE habilitarCurso(curso integer, ciclo varchar(2), docente integer, cupoMax integer, seccionI varchar(1))
@@ -320,8 +335,12 @@ BEGIN
     IF valCurso THEN
       IF valCiclo THEN
         IF valDocente THEN
-          INSERT INTO CURSO_HABILITADO(codigoCurso,cicloEstudiantil,siifDocente,cupoMaximo,seccion,fechaHora) VALUES (curso,ciclo,docente,cupoMaximo,seccionI,NOW());
-          SELECT "CURSO HABILITADO EXITOSAMENTE" AS Resultado;
+          IF cupoMax > 0 THEN
+            INSERT INTO CURSO_HABILITADO(codigoCurso,cicloEstudiantil,siifDocente,cupoMaximo,seccion,yearH,fechaHora) VALUES (curso,ciclo,docente,cupoMax,seccionI,CAST(YEAR(NOW()) AS SIGNED));
+            SELECT "CURSO HABILITADO EXITOSAMENTE" AS Resultado;
+          ELSE
+            SELECT "CUPO MAXIMO INCORRECTO" AS Resultado;
+          END IF;
         ELSE
           SELECT "DOCENTE INEXISTENTE" AS Resultado;
         END IF;
@@ -382,8 +401,19 @@ BEGIN
 END $$
 DELIMITER ;
 
-
-USE proyecto2;
+DELIMITER $$ 
+CREATE FUNCTION validarHabilitadoSeccion(curso integer, seccionI varchar(1))
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+  DECLARE contador integer;
+  SELECT COUNT(*) INTO contador FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI;
+  IF contador > 0 THEN
+    RETURN TRUE;
+  ELSE 
+    RETURN FALSE;
+  END IF;
+END $$
+DELIMITER ;
 
 DELIMITER $$
 CREATE PROCEDURE agregarHorario(idHabilitadoI INTEGER, dia integer, horario varchar(11))
@@ -433,34 +463,65 @@ BEGIN
 END $$
 DELIMITER ;
 
-USE proyecto2;
-
 DELIMITER $$
 CREATE PROCEDURE asignarCurso(curso integer, cicloI varchar(2), seccionI varchar(1), carnet bigint)
 BEGIN
-	DECLARE valCurso BOOL;
-    DECLARE valEstudiante BOOL;
-    DECLARE valCiclo BOOL;
+	DECLARE valCurso BOOLEAN;
+    DECLARE valEstudiante,valCarrera,valCup BOOLEAN;
+    DECLARE valCiclo,asignado,creditosNecesarios BOOLEAN;
     DECLARE contador ,idHab INTEGER;
+    -- verificar el curso
     SET valCurso = verificarExisteCurso(curso);
+    -- verificar el estudiante
     SET valEstudiante = verificarEstudiante(carnet);
+    -- verificar el ciclo
     SET valCiclo = validarCiclo(cicloI);
-    
+
+
+    SET asignado =  validarAsignaciones(carnet, curso);
+    SET creditosNecesarios = validarCreditos(carnet, curso);
+    SET valCarrera = validarCarrera(carnet, curso);
+    SET valCup = validarCupos(idHab);
+    -- OTRAS VALIDACIONES
+    -- no se encuentre asignado al curso
+    -- creditos necesarios
+    -- pertenezca a su carrera o area comun
+    -- seccion elegida existe
+    -- tenga aun cupo
+
     IF valCurso THEN
-		IF valEstudiante THEN
-			IF valCiclo THEN
-				SELECT COUNT(*) INTO contador FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI AND ciclo = cicloI;
-                IF contador > 0 THEN 
-					SELECT idHabilitado INTO idHab FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI AND ciclo = cicloI;
-					INSERT INTO ASIGNACION(idHabilitado,cicloEstudiantil, carnetEstudiante,fechaHora) VALUES(idHab,cicloI,carnet,NOW());
+      IF valEstudiante THEN
+        IF valCiclo THEN
+            SELECT COUNT(*) INTO contador FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI AND cicloEstudiantil = cicloI;
+            SELECT idHabilitado INTO idHab FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI AND cicloEstudiantil = cicloI;
+            IF contador > 0 THEN
+              -- VALIDAMOS SI EL ESTUDIANTE YA ESTA ASIGNADO
+              IF NOT(asignado) THEN
+                -- VALIDAMOS QUE TENGA LOS CREDITOS NECESARIOS
+                IF creditosNecesarios THEN
+                  IF valCarrera THEN
+                    IF valCup THEN
+                       INSERT INTO ASIGNACION(idHabilitado,cicloEstudiantil, carnetEstudiante,fechaHora) VALUES(idHab,cicloI,carnet,NOW());                
+                    ELSE 
+                      SELECT "NO SE PUEDE ASIGNAR: NO HAY CUPOS LIBRES" AS Resultado;
+                    END IF;
+                  ELSE
+                    SELECT "NO SE PUEDE ASIGNAR: NO PERTENECE A SU PENSUM" AS Resultado;
+                  END IF;
                 ELSE
-					SELECT "CURSO NO SE ENCUENTRA HABILITADO" AS Resultado;
+                  SELECT "NO SE PUEDE ASIGNAR: CREDITOS INSUFICIENTES" AS Resultado;
                 END IF;
+              ELSE
+                SELECT "NO SE PUEDE ASIGNAR: CURSO ASIGNADO" AS Resultado;
+              END IF;
             ELSE
-				SELECT "FORMATO CICLO INCORRECTO" AS Resultado;
+              SELECT "CURSO NO SE ENCUENTRA HABILITADO" AS Resultado;
             END IF;
-        ELSE
-			SELECT "ESTUDIANTE INEXISTENTE" AS Resultado;
+          ELSE
+            SELECT "FORMATO CICLO INCORRECTO" AS Resultado;
+          END IF;
+      ELSE
+			  SELECT "ESTUDIANTE INEXISTENTE" AS Resultado;
         END IF;
     ELSE
 		SELECT "CURSO INEXISTENTE" AS Resultado;
@@ -469,14 +530,144 @@ END;
 $$
 DELIMITER ;
 
--- Consultas
--- consulta pensum
+DELIMITER $$
+CREATE FUNCTION validarAsignaciones(carnet integer, curso integer)
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+  DECLARE contador INTEGER;
+  SELECT COUNT(carnetEstudiante) INTO contador FROM ASIGNACION AS asi JOIN CURSO_HABILITADO AS ch  ON ch.codigoCurso = curso AND asi.carnetEstudiante = carnet AND asi.yearH = CAST(YEAR(NOW()) AS SIGNED);
+  IF contador > 0 THEN
+    RETURN TRUE;
+  ELSE 
+    RETURN FALSE;
+  END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE FUNCTION validarCreditos(carnet integer, curso integer)
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+  DECLARE cursoC,creditosEstudiante INTEGER;
+  SELECT creditosNecesarios INTO cursoC FROM CURSO WHERE codigoCurso = curso;
+  SELECT creditos INTO creditosEstudiante FROM ESTUDIANTE WHERE carnetEstudiante = carnet;
+  
+  IF creditosEstudiante >= cursoC THEN
+    RETURN TRUE;
+  ELSE
+    RETURN FALSE;
+  END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE FUNCTION validarCarrera(carnet integer, curso integer)
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+  DECLARE cursoC, estudiante INTEGER;
+  SELECT idCarrera INTO cursoC FROM CURSO WHERE codigoCurso = curso;
+  SELECT idCarrera INTO estudiante FROM ESTUDIANTE WHERE carnetEstudiante = carnet;
+
+  IF cursoC = 0 THEN
+    RETURN TRUE;
+  ELSE
+    IF cursoC = estudiante THEN
+      RETURN TRUE;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END IF; 
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE FUNCTION validarCupos(idCursoH INT)
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+  DECLARE contador, habilitado INT;
+  SELECT cantidadAsignados INTO contador FROM CONTROL_ASIGNACION WHERE idHabilitado = idCursoH;
+  SELECT cupoMaximo INTO habilitado FROM CURSO_HABILITADO WHERE idHabilitado = idCursoH;
+
+  IF contador < habilitado OR contador IS NULL THEN
+    RETURN TRUE;
+  ELSE
+    RETURN FALSE;
+  END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$ 
+CREATE TRIGGER insertControlAsignacion
+BEFORE INSERT ON ASIGNACION
+FOR EACH ROW
+BEGIN
+  DECLARE curso_id INTEGER;
+  SET curso_id = NEW.idHabilitado;
+
+  IF EXISTS(SELECT 1 FROM CONTROL_ASIGNACION WHERE idHabilitado = curso_id) THEN
+    UPDATE CONTROL_ASIGNACION SET cantidadAsignados = cantidadAsignados +1 WHERE idHabilitado = curso_id;
+  ELSE 
+    INSERT INTO CONTROL_ASIGNACION(idHabilitado,cantidadAsignados) VALUES (curso_id, 1);
+  END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE FUNCTION obtenerAsignacion(curso integer, cicloI varchar(2),seccionI varchar(1), carnet bigint)
+RETURNS INTEGER DETERMINISTIC
+BEGIN 
+  DECLARE idVal,idHab INTEGER;
+  SELECT idHabilitado INTO idHab FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI AND cicloEstudiantil = cicloI AND yearH = CAST(YEAR(NOW()) AS SIGNED);
+  SELECT idAsignacion INTO idVal FROM ASIGNACION WHERE idHabilitado = idHab AND carnetEstudiante = carnet;
+  RETURN idVal;
+END $$
+DELIMITER 
+
+DROP PROCEDURE desasignarCurso;
+DELIMITER $$
+CREATE PROCEDURE desasignarCurso(curso integer, cicloI varchar(2), seccionI varchar(1),carnet bigint)
+BEGIN
+    -- VALIDACIONES
+    -- QUE EL CURSO SE ENCUENTRE ASIGNADO
+    -- VALIDAR EL CICLO
+    -- VALIDAR QUE EXISTA EL CARNET
+    DECLARE contador,idHab,tmp1 INTEGER;
+    DECLARE valCarnet, valCiclo BOOLEAN;
+    SET valCarnet = verificarEstudiante(carnet);
+    SET valCiclo = validarCiclo(cicloI);
+
+
+    IF valCarnet THEN
+        IF valCiclo THEN
+            SELECT idHabilitado INTO idHab FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI AND cicloEstudiantil = cicloI;
+            SELECT COUNT(*) INTO contador FROM ASIGNACION WHERE cicloEstudiantil = cicloI AND carnetEstudiante = carnet AND idHabilitado = idHab;
+            IF contador > 0 THEN
+                -- DESASIGNAMOS AL ESTUDIANTE
+                DELETE FROM ASIGNACION WHERE cicloEstudiantil = cicloI AND carnetEstudiante = carnet AND idHabilitado = idHab;
+                UPDATE CONTROL_ASIGNACION SET cantidadAsignados = cantidadAsignados -1 WHERE idHabilitado = idHab;
+                SELECT "CURSO DESASIGNADO CON EXITO" AS Resultado;
+            ELSE
+                SELECT "NO SE PUEDE DESASIGNAR: CURSO NO ASIGNADO" AS Resultado;    
+            END IF;
+        ELSE
+            SELECT "FORMATO CICLO INCORRECTO" AS Resultado;
+        END IF;
+    ELSE 
+        SELECT "ESTUDIANTE INEXISTENTE" AS Resultado;
+    END IF;
+END $$
+DELIMITER ;
+
+
+-- pensum
 DELIMITER $$
 CREATE PROCEDURE consultarPensum(carrera integer)
 BEGIN
     SELECT codigoCurso,nombre,creditosNecesarios,obligatorio FROM CURSO WHERE idCarrera = carrera;
 END $$
 DELIMITER ;
+
+-- Estudiante
 
 DELIMITER $$
 CREATE PROCEDURE consultarEstudiante(carnet BIGINT)
@@ -492,77 +683,10 @@ BEGIN
 END $$
 DELIMITER ;
 
--- DATOS INGRESADOS EN LA BASE
-
--- REGISTRO DE CARRERAS
-CALL crearCarrera('Ingenieria Civil');       -- 1  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
-CALL crearCarrera('Ingenieria Industrial');  -- 2  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
-CALL crearCarrera('Ingenieria Sistemas');    -- 3  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
-CALL crearCarrera('Ingenieria Electronica'); -- 4  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
-CALL crearCarrera('Ingenieria Mecanica');    -- 5  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
-CALL crearCarrera('Ingenieria Mecatronica'); -- 6  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
-CALL crearCarrera('Ingenieria Quimica');     -- 7  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
-CALL crearCarrera('Ingenieria Ambiental');   -- 8  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
-CALL crearCarrera('Ingenieria Materiales');  -- 9  VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
-CALL crearCarrera('Ingenieria Textil');      -- 10 VALIDAR QUE LES QUEDE ESTE ID EN LA CARRERA CORRESPONDIENTE
-
--- REGISTRO DE DOCENTES
-CALL registrarDocente('Docente1','Apellido1','30-10-1999','aadf@ingenieria.usac.edu.gt',12345678,'direccion',12345678910,1);
-CALL registrarDocente('Docente2','Apellido2','20-11-1999','docente2@ingenieria.usac.edu.gt',12345678,'direcciondocente2',12345678911,2);
-CALL registrarDocente('Docente3','Apellido3','20-12-1980','docente3@ingenieria.usac.edu.gt',12345678,'direcciondocente3',12345678912,3);
-CALL registrarDocente('Docente4','Apellido4','20-11-1981','docente4@ingenieria.usac.edu.gt',12345678,'direcciondocente4',12345678913,4);
-CALL registrarDocente('Docente5','Apellido5','20-09-1982','docente5@ingenieria.usac.edu.gt',12345678,'direcciondocente5',12345678914,5);
-
--- REGISTRO DE ESTUDIANTES
--- SISTEMAS
-CALL registrarEstudiante(202000001,'Estudiante de','Sistemas Uno','30-10-1999','sistemasuno@gmail.com',12345678,'direccion estudiantes sistemas 1',337859510101,3);
-CALL registrarEstudiante(202000002,'Estudiante de','Sistemas Dos','3-5-2000','sistemasdos@gmail.com',12345678,'direccion estudiantes sistemas 2',32781580101,3);
-CALL registrarEstudiante(202000003,'Estudiante de','Sistemas Tres','3-5-2002','sistemastres@gmail.com',12345678,'direccion estudiantes sistemas 3',32791580101,3);
--- CIVIL
-CALL registrarEstudiante(202100001,'Estudiante de','Civil Uno','3-5-1990','civiluno@gmail.com',12345678,'direccion de estudiante civil 1',3182781580101,1);
-CALL registrarEstudiante(202100002,'Estudiante de','Civil Dos','03-08-1998','civildos@gmail.com',12345678,'direccion de estudiante civil 2',3181781580101,1);
--- INDUSTRIAL
-CALL registrarEstudiante(202200001,'Estudiante de','Industrial Uno','30-10-1999','industrialuno@gmail.com',12345678,'direccion de estudiante industrial 1',3878168901,2);
-CALL registrarEstudiante(202200002,'Estudiante de','Industrial Dos','20-10-1994','industrialdos@gmail.com',89765432,'direccion de estudiante industrial 2',29781580101,2);
--- ELECTRONICA
-CALL registrarEstudiante(202300001, 'Estudiante de','Electronica Uno','20-10-2005','electronicauno@gmail.com',89765432,'direccion de estudiante electronica 1',29761580101,4);
-CALL registrarEstudiante(202300002, 'Estudiante de','Electronica Dos', '01-01-2008','electronicados@gmail.com',12345678,'direccion de estudiante electronica 2',387916890101,4);
--- ESTUDIANTES RANDOM
-CALL registrarEstudiante(201710160, 'ESTUDIANTE','SISTEMAS RANDOM','20-08-1994','estudiasist@gmail.com',89765432,'direccionestudisist random',29791580101,3);
-CALL registrarEstudiante(201710161, 'ESTUDIANTE','CIVIL RANDOM','20-08-1995','estudiacivl@gmail.com',89765432,'direccionestudicivl random',30791580101,1);
+DELIMITER $$
+CREATE PROCEDURE consultarAsignados(codigo integer, ciclo varchar(2),year integer,seccion varchar(1))
+BEGIN
+END $$
+DELIMITER ;
 
 
--- AREA COMUN
-CALL crearCurso(0006,'Idioma Tecnico 1',0,7,0,false); 
-CALL crearCurso(0007,'Idioma Tecnico 2',0,7,0,false);
-CALL crearCurso(101,'MB 1',0,7,0,true); 
-CALL crearCurso(103,'MB 2',0,7,0,true); 
-CALL crearCurso(017,'SOCIAL HUMANISTICA 1',0,4,0,true); 
-CALL crearCurso(019,'SOCIAL HUMANISTICA 2',0,4,0,true); 
-CALL crearCurso(348,'QUIMICA GENERAL',0,3,0,true); 
-CALL crearCurso(349,'QUIMICA GENERAL LABORATORIO',0,1,0,true);
--- INGENIERIA EN SISTEMAS
-CALL crearCurso(777,'Compiladores 1',80,4,3,true); 
-CALL crearCurso(770,'INTR. A la Programacion y computacion 1',0,4,3,true); 
-CALL crearCurso(960,'MATE COMPUTO 1',33,5,3,true); 
-CALL crearCurso(795,'lOGICA DE SISTEMAS',33,2,3,true);
-CALL crearCurso(796,'LENGUAJES FORMALES Y DE PROGRAMACIÓN',0,3,3,TRUE);
--- INGENIERIA INDUSTRIAL
-CALL crearCurso(123,'Curso Industrial 1',0,4,2,true); 
-CALL crearCurso(124,'Curso Industrial 2',0,4,2,true);
-CALL crearCurso(125,'Curso Industrial enseñar a pensar',10,2,2,false);
-CALL crearCurso(126,'Curso Industrial ENSEÑAR A DIBUJAR',2,4,2,true);
-CALL crearCurso(127,'Curso Industrial 3',8,4,2,true);
--- INGENIERIA CIVIL
-CALL crearCurso(321,'Curso Civil 1',0,4,1,true);
-CALL crearCurso(322,'Curso Civil 2',4,4,1,true);
-CALL crearCurso(323,'Curso Civil 3',8,4,1,true);
-CALL crearCurso(324,'Curso Civil 4',12,4,1,true);
-CALL crearCurso(325,'Curso Civil 5',16,4,1,false);
-CALL crearCurso(0250,'Mecanica de Fluidos',0,5,1,true);
--- INGENIERIA ELECTRONICA
-CALL crearCurso(421,'Curso Electronica 1',0,4,4,true);
-CALL crearCurso(422,'Curso Electronica 2',4,4,4,true);
-CALL crearCurso(423,'Curso Electronica 3',8,4,4,false);
-CALL crearCurso(424,'Curso Electronica 4',12,4,4,true);
-CALL crearCurso(425,'Curso Electronica 5',16,4,4,true);
