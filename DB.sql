@@ -159,9 +159,6 @@ CREATE TABLE IF NOT EXISTS HISTORIAL(
 -- CREAR CARRERA
 use proyecto2;
 
-
-
-
 DELIMITER $$
 CREATE PROCEDURE crearCarrera(nombre varchar(50))
 BEGIN
@@ -185,7 +182,6 @@ $$
 
 DELIMITER ;
 
-USE proyecto2;
 
 -- PROCEDIMIENTO ALMACENADO PARA CREAR CURSO
 DELIMITER $$
@@ -225,7 +221,42 @@ BEGIN
 END $$
 DELIMITER ;
 
-USE proyecto2;
+
+-- PROCEDIMIENTO PARA CREAR UN ESTUDIANTE
+DELIMITER $$
+CREATE PROCEDURE registrarEstudiante(carnet bigint,nombres varchar(100), apellidos VARCHAR(100),fechaNac varchar(10), correo varchar(50), telefono integer, direccion varchar(100), dpi bigint, idCarrera integer)
+BEGIN
+	declare contador INT;
+    DECLARE soloLetras VARCHAR(18);
+    DECLARE correoCorrecto VARCHAR(50);
+    DECLARE fechaCorrecta DATE;
+    SET fechaCorrecta = valFormatoFecha(fechaNac);
+    SET correoCorrecto = '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$';
+	IF correo REGEXP correoCorrecto THEN
+    	INSERT INTO ESTUDIANTE(carnetEstudiante, nombre, apellido,fechaNacimiento, correo, telefono, direccion, dpiEstudiante, creditos, idCarrera, fechaHora) VALUES (carnet, nombres, apellidos, fechaCorrecta, correo, telefono, direccion, dpi, 0,idCarrera, now());
+        SELECT 1 AS Resultado;
+	ELSE 
+	    SELECT 0 AS Resultado;
+	END IF;  
+END;
+$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE FUNCTION verificarEstudiante(carnet bigint)
+returns boolean DETERMINISTIC
+BEGIN
+    DECLARE contador INTEGER;
+    SELECT COUNT(*) INTO contador FROM ESTUDIANTE WHERE carnetEstudiante = carnet;
+    IF contador > 0 THEN
+        RETURN TRUE;
+    ELSE 
+        RETURN FALSE;
+    END IF;
+END $$
+DELIMITER ;
 
 -- PROCEDIMIENTO PARA CREAR UN DOCENTE
 DELIMITER $$
@@ -281,44 +312,6 @@ BEGIN
 END $$
 DELIMITER ;
 
-USE proyecto2;
-
--- PROCEDIMIENTO PARA CREAR UN ESTUDIANTE
-DELIMITER $$
-CREATE PROCEDURE registrarEstudiante(carnet bigint,nombres varchar(100), apellidos VARCHAR(100),fechaNac varchar(10), correo varchar(50), telefono integer, direccion varchar(100), dpi bigint, idCarrera integer)
-BEGIN
-	declare contador INT;
-    DECLARE soloLetras VARCHAR(18);
-    DECLARE correoCorrecto VARCHAR(50);
-    DECLARE fechaCorrecta DATE;
-    SET fechaCorrecta = valFormatoFecha(fechaNac);
-    SET correoCorrecto = '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$';
-	IF correo REGEXP correoCorrecto THEN
-    	INSERT INTO ESTUDIANTE(carnetEstudiante, nombre, apellido,fechaNacimiento, correo, telefono, direccion, dpiEstudiante, creditos, idCarrera, fechaHora) VALUES (carnet, nombres, apellidos, fechaCorrecta, correo, telefono, direccion, dpi, 0,idCarrera, now());
-        SELECT 1 AS Resultado;
-	ELSE 
-	    SELECT 0 AS Resultado;
-	END IF;  
-END;
-$$
-
-DELIMITER ;
-
-
-DELIMITER $$
-CREATE FUNCTION verificarEstudiante(carnet bigint)
-returns boolean DETERMINISTIC
-BEGIN
-    DECLARE contador INTEGER;
-    SELECT COUNT(*) INTO contador FROM ESTUDIANTE WHERE carnetEstudiante = carnet;
-    IF contador > 0 THEN
-        RETURN TRUE;
-    ELSE 
-        RETURN FALSE;
-    END IF;
-END $$
-DELIMITER ;
-
 -- procedure para realizar la habilitacion de un curso dentro de la base de datos
 DELIMITER $$
 CREATE PROCEDURE habilitarCurso(curso integer, ciclo varchar(2), docente integer, cupoMax integer, seccionI varchar(1))
@@ -336,7 +329,7 @@ BEGIN
       IF valCiclo THEN
         IF valDocente THEN
           IF cupoMax > 0 THEN
-            INSERT INTO CURSO_HABILITADO(codigoCurso,cicloEstudiantil,siifDocente,cupoMaximo,seccion,yearH,fechaHora) VALUES (curso,ciclo,docente,cupoMax,seccionI,CAST(YEAR(NOW()) AS SIGNED));
+            INSERT INTO CURSO_HABILITADO(codigoCurso,cicloEstudiantil,siifDocente,cupoMaximo,seccion,yearH,fechaHora) VALUES (curso,ciclo,docente,cupoMax,seccionI,CAST(YEAR(NOW()) AS SIGNED),NOW());
             SELECT "CURSO HABILITADO EXITOSAMENTE" AS Resultado;
           ELSE
             SELECT "CUPO MAXIMO INCORRECTO" AS Resultado;
@@ -415,6 +408,7 @@ BEGIN
 END $$
 DELIMITER ;
 
+
 DELIMITER $$
 CREATE PROCEDURE agregarHorario(idHabilitadoI INTEGER, dia integer, horario varchar(11))
 BEGIN
@@ -462,6 +456,7 @@ BEGIN
   END IF;
 END $$
 DELIMITER ;
+
 
 DELIMITER $$
 CREATE PROCEDURE asignarCurso(curso integer, cicloI varchar(2), seccionI varchar(1), carnet bigint)
@@ -535,7 +530,7 @@ CREATE FUNCTION validarAsignaciones(carnet integer, curso integer)
 RETURNS BOOLEAN DETERMINISTIC
 BEGIN
   DECLARE contador INTEGER;
-  SELECT COUNT(carnetEstudiante) INTO contador FROM ASIGNACION AS asi JOIN CURSO_HABILITADO AS ch  ON ch.codigoCurso = curso AND asi.carnetEstudiante = carnet AND asi.yearH = CAST(YEAR(NOW()) AS SIGNED);
+  SELECT COUNT(carnetEstudiante) INTO contador FROM ASIGNACION AS asi JOIN CURSO_HABILITADO AS ch  ON ch.codigoCurso = curso AND asi.carnetEstudiante = carnet AND ch.yearH = CAST(YEAR(NOW()) AS SIGNED);
   IF contador > 0 THEN
     RETURN TRUE;
   ELSE 
@@ -623,43 +618,83 @@ BEGIN
 END $$
 DELIMITER 
 
-DROP PROCEDURE desasignarCurso;
+-- OBTENEMOS EL TOTAL DE ASIGNACIONES QUE SE HICIERON
+-- CONTAMOS TODAS LAS NTOTAS INGRESADAS
+
 DELIMITER $$
-CREATE PROCEDURE desasignarCurso(curso integer, cicloI varchar(2), seccionI varchar(1),carnet bigint)
+CREATE PROCEDURE ingresarNota(curso integer, cicloI varchar(2), seccionI varchar(1), carnet bigint,nota DEC)
 BEGIN
-    -- VALIDACIONES
-    -- QUE EL CURSO SE ENCUENTRE ASIGNADO
-    -- VALIDAR EL CICLO
-    -- VALIDAR QUE EXISTA EL CARNET
-    DECLARE contador,idHab,tmp1 INTEGER;
-    DECLARE valCarnet, valCiclo BOOLEAN;
+    DECLARE contador,idHab,tmp1,idAsig,credOtor INTEGER;
+    DECLARE valCarnet, valCiclo, cursoGanado BOOLEAN;
     SET valCarnet = verificarEstudiante(carnet);
-    SET valCiclo = validarCiclo(cicloI);
-
-
-    IF valCarnet THEN
-        IF valCiclo THEN
-            SELECT idHabilitado INTO idHab FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI AND cicloEstudiantil = cicloI;
-            SELECT COUNT(*) INTO contador FROM ASIGNACION WHERE cicloEstudiantil = cicloI AND carnetEstudiante = carnet AND idHabilitado = idHab;
+    SET valCiclo = validarCiclo(cicloI);    
+    SET contador = CAST(ROUND(nota) AS SIGNED);
+    IF valCiclo THEN
+        IF valCarnet THEN
             IF contador > 0 THEN
-                -- DESASIGNAMOS AL ESTUDIANTE
-                DELETE FROM ASIGNACION WHERE cicloEstudiantil = cicloI AND carnetEstudiante = carnet AND idHabilitado = idHab;
-                UPDATE CONTROL_ASIGNACION SET cantidadAsignados = cantidadAsignados -1 WHERE idHabilitado = idHab;
-                SELECT "CURSO DESASIGNADO CON EXITO" AS Resultado;
+                IF contador > 61 THEN
+                    SET cursoGanado = TRUE;
+                    SET cursoGanado = FALSE;
+                    -- OBTENEMOS EL ID DE LA ASIGNACION
+                    SET idAsig = obtenerAsignacion(curso, cicloI,seccionI,carnet);
+                    -- INSERTAMOS LA NOTA
+                    IF idAsig IS NULL THEN
+                        SELECT "ESTUDIANTE NO ASIGNADO A ESTE CURSO" AS Resultado;     
+                    ELSE 
+                        INSERT INTO NOTA(cicloEstudiantil, nota, aprobado, idAsignacion, fechaHora) VALUES (cicloI, contador,cursoGanado,idAsig,NOW());
+                        SELECT creditosOtorgados INTO credOtor FROM CURSO WHERE codigoCurso = curso;
+                        UPDATE ESTUDIANTE SET creditos = creditos + credOtor WHERE carnetEstudiante = carnet; 
+                        SELECT "NOTA INSERTADA CORRECTAMENTE" AS Resultado;     
+                    END IF;
+                ELSE
+                    SET cursoGanado = FALSE;
+                    -- OBTENEMOS EL ID DE LA ASIGNACION
+                    SET idAsig = obtenerAsignacion(curso, cicloI,seccionI,carnet);
+                    -- INSERTAMOS LA NOTA
+                    IF idAsig IS NULL THEN
+                        SELECT "ESTUDIANTE NO ASIGNADO A ESTE CURSO" AS Resultado;     
+                    ELSE 
+                        INSERT INTO NOTA(cicloEstudiantil, nota, aprobado, idAsignacion, fechaHora) VALUES (cicloI, contador,cursoGanado,idAsig,NOW());
+                        SELECT "NOTA INSERTADA CORRECTAMENTE" AS Resultado;     
+                    END IF;
+                END IF;
             ELSE
-                SELECT "NO SE PUEDE DESASIGNAR: CURSO NO ASIGNADO" AS Resultado;    
+                SELECT "VALORES PARA NOTA INCORRECTOS" AS Resultado;     
             END IF;
         ELSE
-            SELECT "FORMATO CICLO INCORRECTO" AS Resultado;
+            SELECT "ESTUDIANTE INEXISTENTE" AS Resultado;
         END IF;
-    ELSE 
-        SELECT "ESTUDIANTE INEXISTENTE" AS Resultado;
+    ELSE
+        SELECT "FORMATO CICLO INCORRECTO" AS Resultado;
     END IF;
 END $$
 DELIMITER ;
 
+DELIMITER $$
+CREATE PROCEDURE generarActa(curso integer, cicloI varchar(2),seccionI varchar(1))
+BEGIN
+    DECLARE valCiclo BOOLEAN;
+    DECLARE idHab, contador,totalNotas,idAsig integer;
 
--- pensum
+    SET valCiclo = validarCiclo(cicloI);
+    
+    IF valCiclo THEN
+        SELECT idHabilitado INTO idHab FROM CURSO_HABILITADO WHERE codigoCurso = curso AND seccion = seccionI AND cicloEstudiantil = cicloI;
+        SELECT cantidadAsignados INTO contador FROM CONTROL_ASIGNACION WHERE idHabilitado = idHab;
+        SELECT COUNT(*) INTO totalNotas FROM NOTA AS nt JOIN ASIGNACION AS asi ON asi.cicloEstudiantil = cicloI AND asi.idHabilitado = idHab;
+
+        IF totalNotas = contador THEN
+            INSERT INTO ACTA(codigoCurso, ciclo, seccion, fechaHora) VALUES (curso,cicloI,seccionI, NOW());
+            SELECT "ACTA GENERADA CON EXITO" AS Resultado;
+        ELSE 
+            SELECT "NO SE HAN INGRESADO TODAS LAS NOTAS" AS Resultado;
+        END IF;
+    ELSE
+        SELECT "FORMATO DE CICLO ESTUDIANTIL INCORRECTO" AS Resultado;
+    END IF;
+END $$
+DELIMITER ;
+
 DELIMITER $$
 CREATE PROCEDURE consultarPensum(carrera integer)
 BEGIN
@@ -682,11 +717,3 @@ BEGIN
     select siifDocente, CONCAT(nombre," ",apellido), fechaNacimiento,correo,telefono,direccion,dpiDocente from DOCENTE WHERE siifDocente = codigo;
 END $$
 DELIMITER ;
-
-DELIMITER $$
-CREATE PROCEDURE consultarAsignados(codigo integer, ciclo varchar(2),year integer,seccion varchar(1))
-BEGIN
-END $$
-DELIMITER ;
-
-

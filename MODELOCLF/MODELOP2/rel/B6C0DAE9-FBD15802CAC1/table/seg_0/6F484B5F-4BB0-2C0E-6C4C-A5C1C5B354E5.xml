@@ -61,6 +61,7 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="0A67527E-59BB-DF4D-510D-33143A19FB99"/>
+<colUsage columnID="90A75149-ADA0-E1DA-00F0-81667C43CE02"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="39F9E3A5-C9F4-D11C-A6D6-440B9AAB819C" name="HORARIO_ASIGNADO_HORARIO_CURSO_FK">

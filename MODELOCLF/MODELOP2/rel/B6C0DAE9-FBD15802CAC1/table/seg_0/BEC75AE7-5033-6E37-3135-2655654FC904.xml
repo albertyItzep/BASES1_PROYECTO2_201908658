@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BEC75AE7-5033-6E37-3135-2655654FC904" name="CONTROL_ASIGNACION">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-11-01 18:34:01 UTC</createdTime>
+<generatorID>15BD260F-EA20-F826-923D-AC564AF86CBE</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idControlAsignado" id="609A8459-2047-95B4-EC44-D6F5B74835F5">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-11-01 18:34:01 UTC</createdTime>
+<generatorID>12F6D163-DF0E-AC65-9D08-4867C76AE608</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cantidadAsignados" id="FAF4A63F-F04B-5A85-4AD5-BFF215FCF878">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-11-01 18:34:01 UTC</createdTime>
+<generatorID>FFDAD058-3D7C-DF16-31FB-CDB56F83CD40</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CURSO_HABILITADO_id_Habilitado" id="73DA9073-C918-8760-0F92-27B030EC164C">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-11-01 18:34:01 UTC</createdTime>
+<generatorID>039E99D8-A7DB-0EF9-2EB0-C6E59FA0BB24</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="19F0D655-541E-5857-123F-4A2E1ED15093" referredColumn="24FF7E5A-DBE6-A12F-73A8-DC888890D46B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="34190179-574A-AAEA-5ED4-349020CA68D9" name="CONTROL_ASIGNACION_PK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-11-01 18:34:01 UTC</createdTime>
+<generatorID>1BD9A494-6A04-D802-EF3B-563385CC3EF5</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="609A8459-2047-95B4-EC44-D6F5B74835F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="29AE73D5-CD3E-7F1A-9065-4EB858CEC7CF" name="CONTROL_ASIGNACION_CURSO_HABILITADO_FK">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-11-01 18:34:01 UTC</createdTime>
+<generatorID>BE761E50-BD6F-3725-0FD8-C7D2D388800D</generatorID>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="73DA9073-C918-8760-0F92-27B030EC164C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

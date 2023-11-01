@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CONTROL:HABILITADO" directorySegmentName="seg_0" id="BE761E50-BD6F-3725-0FD8-C7D2D388800D">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-11-01 18:33:26 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<sourcePk>268EAFC0-3BEB-3FEF-5CE7-1C01D28B3C87</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>51BF3460-5B78-4C3D-F762-36DFE411D494</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>15BD260F-EA20-F826-923D-AC564AF86CBE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

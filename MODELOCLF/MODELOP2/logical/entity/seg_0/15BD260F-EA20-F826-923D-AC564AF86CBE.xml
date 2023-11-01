@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7A070CC6-33AE-1DD5-C750-8FD1438809E0" name="HORARIO_ASIGNADO">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="15BD260F-EA20-F826-923D-AC564AF86CBE" name="CONTROL_ASIGNACION">
 <createdBy>Xorg123</createdBy>
-<createdTime>2023-10-27 05:56:46 UTC</createdTime>
+<createdTime>2023-11-01 18:31:58 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
 <engineerTo>
 <item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="idHorarioCurso" id="A79711F0-2887-D388-A992-730AB2F5DF79">
+<Attribute name="idControlAsignado" id="12F6D163-DF0E-AC65-9D08-4867C76AE608">
 <createdBy>Xorg123</createdBy>
-<createdTime>2023-10-27 05:57:08 UTC</createdTime>
+<createdTime>2023-11-01 18:32:18 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
 <engineerTo>
 <item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
@@ -27,10 +27,22 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_Habilitado" id="EA4C538A-4626-0897-907A-35EF4EA4A536">
+<Attribute name="cantidadAsignados" id="FFDAD058-3D7C-DF16-31FB-CDB56F83CD40">
 <createdBy>Xorg123</createdBy>
-<createdTime>2023-10-27 05:58:19 UTC</createdTime>
-<generatorID>246FD4F4-32D1-FAF0-2FCD-F0EB3270E34D</generatorID>
+<createdTime>2023-11-01 18:32:37 UTC</createdTime>
+<ownerDesignName>MODELOP2</ownerDesignName>
+<engineerTo>
+<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_Habilitado" id="039E99D8-A7DB-0EF9-2EB0-C6E59FA0BB24">
+<createdBy>Xorg123</createdBy>
+<createdTime>2023-11-01 18:33:26 UTC</createdTime>
+<generatorID>BE761E50-BD6F-3725-0FD8-C7D2D388800D</generatorID>
 <ownerDesignName>MODELOP2</ownerDesignName>
 <engineerTo>
 <item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
@@ -41,33 +53,18 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_Horario" id="37489FB6-E71E-84F8-ECA6-7125E8C925AF">
-<createdBy>Xorg123</createdBy>
-<createdTime>2023-10-27 05:58:54 UTC</createdTime>
-<generatorID>716FCF0C-AA2D-9FB1-5067-149DD5F1B82E</generatorID>
-<ownerDesignName>MODELOP2</ownerDesignName>
-<engineerTo>
-<item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
-</engineerTo>
-<referedAttribute>0BB11FE4-697B-5C1E-0C76-13CA68FA7EFE</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="C70EED65-5FEF-F56E-056F-91292983D852" name="HORARIO_ASIGNADO PK">
+<identifier id="1BD9A494-6A04-D802-EF3B-563385CC3EF5" name="CONTROL_ASIGNACION PK">
 <createdBy>Xorg123</createdBy>
-<createdTime>2023-10-27 05:57:27 UTC</createdTime>
+<createdTime>2023-11-01 18:32:34 UTC</createdTime>
 <ownerDesignName>MODELOP2</ownerDesignName>
 <engineerTo>
 <item key="B6C0DAE9-5BF3-36E6-BBB9-FBD15802CAC1" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>A79711F0-2887-D388-A992-730AB2F5DF79</attributeRef>
-<attributeRef>EA4C538A-4626-0897-907A-35EF4EA4A536</attributeRef>
+<attributeRef>12F6D163-DF0E-AC65-9D08-4867C76AE608</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
